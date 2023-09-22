@@ -1,17 +1,27 @@
-<script setup>
+<script>
+
+import AppHeader from './components/AppHeader.vue';
+import AppMain from './components/AppMain.vue';
+
+export default {
+  data() {
+    return {
+    };
+  },
+  components: { AppHeader, AppMain },
+}
+
+
+
+
 </script>
 
 <template>
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <h1 class="text-center">Random Number</h1>
-      </div>
-    </div>
-  </div>
-  
+
+  <AppHeader></AppHeader>
+  <AppMain></AppMain>
+
+
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
