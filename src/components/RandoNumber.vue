@@ -37,13 +37,14 @@ export default {
 
 <template>
     <div class="container">
-        <div class="row">
-            <div class="col-6">
+        <div class="row justify-content-center">
+            <div class="col-8">
                 <h1>Choose</h1>
-                <p v-if="randomNumber !== null">Random Number: {{ randomNumber }}</p>
-                <p v-else>Click 'Generate Random Number' to see the number</p>
                 <button @click="generateRandomNumber">Generate Random Number</button>
                 <button @click="resetRandomNumber">Reset</button>
+            </div>
+            <div class="col-8">
+                <p v-if="randomNumber !== null">Random Number: {{ randomNumber }}</p>
             </div>
             <div class="col-6">
                 <div class="text-center p-2" v-if="imageVisible">
