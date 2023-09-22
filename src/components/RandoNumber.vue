@@ -1,7 +1,11 @@
 <script>
+
+import { giffArray } from "../data/giffy.js"
+
 export default {
     data() {
         return {
+            giffArray: giffArray,
             randomNumber: null,
             imageVisible: false
         };
@@ -19,6 +23,9 @@ export default {
         resetRandomNumber() {
             this.randomNumber = null;
             this.imageVisible = false; // Nascondi l'immagine
+        },
+        getImagePath: function (name) {
+            return new URL(`../assets/img/${name}`, import.meta.url).href
         }
     }
 }
@@ -35,7 +42,9 @@ export default {
                 <button @click="resetRandomNumber">Reset</button>
             </div>
             <div class="col-6">
-                <img v-if="imageVisible" src="path_to_your_image.jpg" alt="Random Image" />
+                <div class="text-center p-2" v-for="giff in giffArray" :key="giff.img">
+                    <img class="rounded-4" :src="getImagePath(giff.img)" alt="giff Image">
+                </div>
             </div>
         </div>
     </div>
