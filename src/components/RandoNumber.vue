@@ -1,5 +1,4 @@
 <script>
-
 import { giffArray } from "../data/giffy.js"
 
 export default {
@@ -7,7 +6,8 @@ export default {
         return {
             giffArray: giffArray,
             randomNumber: null,
-            imageVisible: false
+            imageVisible: false,
+            selectedGiff: null
         };
     },
     methods: {
@@ -19,13 +19,17 @@ export default {
 
             this.randomNumber = randomNum;
             this.imageVisible = true; // Mostra l'immagine
+
+            // Scegli una immagine a caso dal dataset giffArray
+            const randomIndex = Math.floor(Math.random() * this.giffArray.length);
+            this.selectedGiff = this.giffArray[randomIndex];
         },
         resetRandomNumber() {
             this.randomNumber = null;
             this.imageVisible = false; // Nascondi l'immagine
         },
         getImagePath: function (name) {
-            return new URL(`../assets/img/${name}`, import.meta.url).href
+            return new URL(`../assets/img/${name}`, import.meta.url).href;
         }
     }
 }
@@ -42,8 +46,8 @@ export default {
                 <button @click="resetRandomNumber">Reset</button>
             </div>
             <div class="col-6">
-                <div class="text-center p-2" v-for="giff in giffArray" :key="giff.img">
-                    <img class="rounded-4" :src="getImagePath(giff.img)" alt="giff Image">
+                <div class="text-center p-2" v-if="imageVisible">
+                    <img class="rounded-4" :src="getImagePath(selectedGiff.img)" alt="Giff Image">
                 </div>
             </div>
         </div>

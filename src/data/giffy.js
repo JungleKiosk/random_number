@@ -4,11 +4,10 @@ export const giffArray = [
         img: "ace_ventura_africa.gif",
     },
     {
-        img: "ace_ventura_africa.gif",
+        img: "robin_hood.gif",
     },
     {
-        img: "ace_ventura_africa.gif",
+        img: "trinit.gif",
     },
     
-
 ]
