@@ -4,10 +4,10 @@ export const giffArray = [
         img: "spongebob_door.gif",
     },
     {
-        img: "robin_hood.gif",
+        img: "cat_water.webp",
     },
     {
-        img: "trinit.gif",
+        img: "dog_pool.webp",
     },
     {
         img: "beard_pixar.gif",
@@ -26,9 +26,6 @@ export const giffArray = [
     },
     {
         img: "doc_great_scott.gif",
-    },
-    {
-        img: "ermione.gif",
     },
     {
         img: "grifondoro_applause.gif",
@@ -56,6 +53,12 @@ export const giffArray = [
     },
     {
         img: "willy_coyote.gif",
+    },
+    {
+        img: "fallcute.gif",
+    },
+    {
+        img: "pingu_falling.gif",
     }
 
 ]

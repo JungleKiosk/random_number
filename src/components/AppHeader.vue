@@ -2,9 +2,9 @@
 </script>
 
 <template>
-  <div class="container my-5">
+  <div class="container mt-5">
     <div class="row justify-content-center">
-      <div class="col-6">
+      <div class="col-12 col-lg-6">
         <h1 class="">Random Number</h1>
         <p>Click on the button and generate a random number, use the generated number to choose a random
           element from your reference set.</p>

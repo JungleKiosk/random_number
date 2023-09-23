@@ -48,15 +48,21 @@ export default {
 
 <template>
     <div class="container">
-        <div class="row justify-content-center align-content-center">
-            <div class="col-8 text-center">
-                <button class="btn btn_rn mx-2" @click="generateRandomNumber">Generate Number</button>
-                <button class="btn btn-dark" @click="resetRandomNumber">Reset</button>
+        <div class="row justify-content-center">
+            
+            <div class="row justify-content-center align-items-center ">
+                <div class="col-8 col-lg-8 mx-1 text-center">
+                    <button class="btn btn_rn " @click="generateRandomNumber">Generate Number</button>
+                </div>
+                <div class="col-4 col-lg-4 my-2 text-center">
+                    <button class="btn btn-dark" @click="resetRandomNumber">Reset</button>
+                </div>
             </div>
-            <div class="col-8 my-3">
+
+            <div class="col-8 col-lg-8 my-3">
                 <h1 class="text-center" v-if="randomNumber !== null" :style="{ color: randomColor }">{{ randomNumber }}</h1>
             </div>
-            <div class="col-8">
+            <div class="col-12 col-lg-8">
                 <div class="text-center p-2" v-if="imageVisible">
                     <img class="rounded-4" :src="getImagePath(selectedGiff.img)" alt="Giff Image">
                 </div>
@@ -66,9 +72,10 @@ export default {
 </template>
   
 
-<style scoped>
+<style>
+
 img {
-    width: 60%;
+    width: 50%;
 }
 
 
