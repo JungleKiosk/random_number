@@ -7,7 +7,10 @@ export default {
             giffArray: giffArray,
             randomNumber: null,
             imageVisible: false,
-            selectedGiff: null
+            selectedGiff: null,
+            /* customColors: ["#13e764", "#f2b91e", "#ef6f31", "#22ad96", "#69bf14"], */ // Aggiungi i colori desiderati qui
+            randomColor: null,
+            darkOverlayVisible: false // Aggiungi questa variabile
         };
     },
     methods: {
@@ -17,8 +20,13 @@ export default {
                 randomNum = Math.floor(Math.random() * 21) + 1;
             } while (randomNum === 7 || randomNum === 8);
 
+            // Scegli casualmente un colore dall'array customColors
+            /* const randomColorIndex = Math.floor(Math.random() * this.customColors.length);
+            this.randomColor = this.customColors[randomColorIndex]; */
+
             this.randomNumber = randomNum;
             this.imageVisible = true; // Mostra l'immagine
+            this.darkOverlayVisible = true; // Mostra l'overlay scuro
 
             // Scegli una immagine a caso dal dataset giffArray
             const randomIndex = Math.floor(Math.random() * this.giffArray.length);
@@ -27,6 +35,7 @@ export default {
         resetRandomNumber() {
             this.randomNumber = null;
             this.imageVisible = false; // Nascondi l'immagine
+            this.darkOverlayVisible = false; // Nascondi l'overlay scuro
         },
         getImagePath: function (name) {
             return new URL(`../assets/img/${name}`, import.meta.url).href;
@@ -35,18 +44,19 @@ export default {
 }
 </script>
 
+
+
 <template>
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-8">
-                <h1>Choose</h1>
-                <button @click="generateRandomNumber">Generate Random Number</button>
-                <button @click="resetRandomNumber">Reset</button>
+        <div class="row justify-content-center align-content-center">
+            <div class="col-8 text-center">
+                <button class="btn btn_rn mx-2" @click="generateRandomNumber">Generate Number</button>
+                <button class="btn btn-dark" @click="resetRandomNumber">Reset</button>
+            </div>
+            <div class="col-8 my-3">
+                <h1 class="text-center" v-if="randomNumber !== null" :style="{ color: randomColor }">{{ randomNumber }}</h1>
             </div>
             <div class="col-8">
-                <p v-if="randomNumber !== null">Random Number: {{ randomNumber }}</p>
-            </div>
-            <div class="col-6">
                 <div class="text-center p-2" v-if="imageVisible">
                     <img class="rounded-4" :src="getImagePath(selectedGiff.img)" alt="Giff Image">
                 </div>
@@ -54,7 +64,14 @@ export default {
         </div>
     </div>
 </template>
+  
 
 <style scoped>
-/* Stili CSS opzionali */
+img {
+    width: 60%;
+}
+
+
+
+
 </style>

@@ -7,3 +7,38 @@ body {
     color: $light;
     font-family: 'Nunito', sans-serif;
 }
+
+body::-webkit-scrollbar {
+    width: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: $primary;
+    height: 123px;
+
+
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background-color: $info;
+    border-radius: 20px;
+}
+
+body::-webkit-scrollbar-track {
+    border-left: 1px solid $primary;
+}
+
+h1{
+    color: $shadow_stack;
+}
+
+.btn_rn{
+    color: $shadow_stack;
+    border: 2px solid $shadow_stack;
+}
+
+.btn_rn:hover{
+    color: $light;
+    background-color: #13e76451;
+    border: 2px solid $shadow_stack;
+}
